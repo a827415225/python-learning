@@ -79,8 +79,37 @@ print(r)
 
 import math
 def quadratic(a,b,c):
-    x = math.sqrt(a*x*x+b*x+c=0)
-    return x
-
+    if not isinstance(a,(int,float)):
+        raise TypeError('数据类型错误')
+    if not isinstance(b,(int,float)):
+        raise TypeError('数据类型错误')
+    if not isinstance(c,(int,float)):
+        raise TypeError('数据类型错误')
+    d=b*b-4*a*c
+    if d > 0:
+        x1 = (-b+math.sqrt(d))/2/a
+        x2 = (-b-math.sqrt(d))/2/a
+        x=(x1,x2)
+        return x
+    elif d == 0:
+        x = -b/(2*a)
+        return x
+    else:
+        return ('该方程无实数根')
 r=quadratic(1,2,1)
+print(type(r))
 print(r)
+
+print('quadratic(2, 3, 1) =', quadratic(2, 3, 1))
+print('quadratic(1, 3, -4) =', quadratic(1, 3, -4))
+
+if quadratic(2, 3, 1) != (-0.5, -1.0):
+    print('测试失败')
+elif quadratic(1, 3, -4) != (1.0, -4.0):
+    print('测试失败')
+else:
+    print('测试成功')
+    
+    
+    
+print(quadratic(1, 1, 1))
