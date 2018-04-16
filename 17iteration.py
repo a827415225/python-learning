@@ -35,16 +35,16 @@ for x, y in [(1, 1), (2, 4), (3, 9)]:
 #练习题
 def findMinAndMax(L):
 #    return (L.max(),L.min())
-    if L == None:
+    if L == []:
         return (None,None)
-    max = None
-    min = None    
+    max = L[0]
+    min = L[0]    
     for i in L:
         if max < i:
             max = i
         if min > i:
             min = i
-    return (max,min)
+    return (min,max)
 # 测试
 if findMinAndMax([]) != (None, None):
     print('测试失败!')
