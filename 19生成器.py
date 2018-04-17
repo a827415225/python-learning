@@ -69,13 +69,20 @@ print(f)
             # break
 
             
+# def triangles():
+    # L=[1]
+    # while True:
+        # yield L
+        # L.append(0)
+        # L = [L[x-1]+L[x] for x in range(len(L))]
 def triangles():
     L=[1]
-    n
     while True:
         yield L
-        L.append(0)
-        L = [L[x-1]+L[x] for x in range(len(L))]
+#        print(results)
+        M = L + [0]
+#        print(results)
+        L = [M[x-1]+M[x] for x in range(len(M))]
 
 # 期待输出:
 # [1]
@@ -91,13 +98,16 @@ def triangles():
 n = 0
 results = []
 for t in triangles():
+#    print(results)
     print(t)
+#    results = results+t
     results.append(t)
+#    print(results)
     n = n + 1
     if n == 10:
         break
 
-print(results)
+
 
 if results == [
     [1],
@@ -115,3 +125,14 @@ if results == [
     print('测试通过!')
 else:
     print('测试失败!')
+    
+    
+#迭代器
+
+# 凡是可作用于for循环的对象都是Iterable（可迭代对象）类型；
+# 凡是可作用于next()函数的对象都是Iterator（迭代器）类型，它们表示一个惰性计算的序列；
+
+# Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不
+# 断返回下一个数据，直到没有数据时抛出StopIteration错误。可以把这个数据流看做是
+# 一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需
+# 计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。
