@@ -136,3 +136,6 @@ else:
 # 断返回下一个数据，直到没有数据时抛出StopIteration错误。可以把这个数据流看做是
 # 一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需
 # 计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。
+
+from collections import Iterable
+from collections import Iterator
