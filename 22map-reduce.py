@@ -61,13 +61,53 @@ def str2int(s):
     return reduce(fn, map(char2num, s))   
 
     
-#练习题
+#练习题1
 a=0
 def normalize(name):
-    return map()
+    name.lower()
+
+    return name[0].upper()+name[1:].lower()
+    
     
 
 # 测试:
 L1 = ['adam', 'LISA', 'barT']
 L2 = list(map(normalize, L1))
 print(L2)
+
+
+
+#练习题2
+def prod(L):
+    def chengf(x,y):
+        return x*y
+    return reduce(chengf,L)
+
+
+#测试   
+print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
+if prod([3, 5, 7, 9]) == 945:
+    print('测试成功!')
+else:
+    print('测试失败!')
+    
+    
+
+#练习题3
+def str2float(s):
+    dot = s.index('.')
+    s1 = s[:dot]+s[dot+1:]
+    def f1(x, y):
+        return x*10+y    
+    def tofloat(z):
+        digits = {'0':0,'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9}
+        return digits[z]
+    return reduce(f1,map(tofloat,s1))/pow(10,len(s1)-dot)    
+    
+    
+#测试
+print('str2float(\'123.456\') =', str2float('123.456'))
+if abs(str2float('123.456') - 123.456) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
